@@ -1,0 +1,90 @@
+:root {
+  color-scheme: dark;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: #111116;
+  color: #f5f3fa;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  --muted: #a29eaf;
+  --subtle: #777383;
+  --line: #302e38;
+  --accent: #a78bfa;
+  --accent-strong: #8b5cf6;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  width: 360px;
+  min-height: 500px;
+  margin: 0;
+  background: radial-gradient(ellipse at 50% -18%, rgba(139, 92, 246, .19), transparent 48%), #111116;
+}
+
+.popup { max-height: 600px; overflow-y: auto; padding: 14px 22px 10px; }
+.header { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+.brand-mark {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  flex: 0 0 42px;
+  overflow: hidden;
+  border: 1px solid rgba(196, 181, 253, .25);
+  border-radius: 13px;
+  background: linear-gradient(145deg, #8b5cf6, #6d42c8 68%, #4c32a4);
+  box-shadow: 0 6px 18px rgba(109, 66, 200, .27), inset 0 1px rgba(255, 255, 255, .2);
+}
+.mark-spark { position: absolute; top: 8px; right: 9px; width: 4px; height: 4px; border-radius: 50%; background: #fff; box-shadow: 0 0 7px #fff; }
+.mark-line { position: absolute; left: 11px; height: 5px; border: 1.5px solid #fff; border-radius: 4px; transform: skewX(-24deg); }
+.mark-line-one { top: 14px; width: 20px; }
+.mark-line-two { top: 23px; width: 15px; opacity: .76; }
+.brand-copy { min-width: 0; flex: 1; }
+.eyebrow { margin: 0 0 3px; color: #b7a5eb; font-size: 9px; font-weight: 700; letter-spacing: .13em; text-transform: uppercase; }
+h1 { margin: 0; font-size: 17px; font-weight: 680; letter-spacing: -.035em; }
+.scope-tag { align-self: flex-start; margin-top: 2px; padding: 5px 7px; border: 1px solid #383543; border-radius: 6px; color: #aaa5b7; font-size: 9px; font-weight: 650; letter-spacing: .03em; }
+
+.settings-card { padding: 4px 14px 11px; border: 1px solid #302d38; border-radius: 13px; background: linear-gradient(145deg, rgba(34, 32, 41, .96), rgba(26, 25, 32, .96)); box-shadow: 0 8px 24px rgba(0, 0, 0, .13); }
+.setting-row { display: flex; align-items: center; justify-content: space-between; gap: 15px; min-height: 51px; }
+.setting-copy { min-width: 0; }
+.setting-title { display: block; color: #f1eef7; font-size: 12px; font-weight: 620; }
+.setting-description { margin: 5px 0 0; color: var(--muted); font-size: 10px; line-height: 1.4; }
+.divider { height: 1px; background: var(--line); }
+.switch { position: relative; display: inline-flex; flex: 0 0 auto; cursor: pointer; }
+.switch input { position: absolute; width: 1px; height: 1px; opacity: 0; }
+.switch-track { display: block; width: 36px; height: 21px; padding: 3px; border: 1px solid #494651; border-radius: 20px; background: #34323b; transition: background .18s, border-color .18s; }
+.switch-thumb { display: block; width: 13px; height: 13px; border-radius: 50%; background: #bbb7c5; box-shadow: 0 1px 3px #0008; transition: transform .18s, background .18s; }
+.switch input:checked + .switch-track { border-color: #9c7cf2; background: var(--accent-strong); }
+.switch input:checked + .switch-track .switch-thumb { transform: translateX(15px); background: #fff; }
+.switch input:focus-visible + .switch-track { outline: 2px solid #c4b5fd; outline-offset: 3px; }
+.switch input:disabled + .switch-track { opacity: .58; }
+.number-control { display: flex; align-items: center; gap: 5px; padding: 0 9px; border: 1px solid #494550; border-radius: 8px; background: #17161c; }
+.number-control:focus-within { border-color: var(--accent); box-shadow: 0 0 0 2px rgba(167, 139, 250, .13); }
+.number-control input { width: 34px; padding: 7px 0; border: 0; outline: 0; background: transparent; color: #f6f3fc; font: inherit; font-size: 12px; font-weight: 650; text-align: right; appearance: textfield; }
+.number-control input::-webkit-inner-spin-button, .number-control input::-webkit-outer-spin-button { margin: 0; appearance: none; }
+.unit { color: #a8a3b2; font-size: 10px; font-weight: 600; }
+.target-help { margin: -3px 0 0; color: var(--subtle); font-size: 9px; text-align: right; }
+.video-help { margin: -1px 0 7px; color: var(--subtle); font-size: 9px; line-height: 1.35; }
+.gif-row { min-height: 47px; }
+.gif-help { margin: -2px 0 7px; color: var(--subtle); font-size: 9px; line-height: 1.35; }
+.switch input:disabled + .switch-track { opacity: .42; }
+
+.privacy-note { display: flex; align-items: flex-start; gap: 7px; margin: 8px 2px 10px; color: #a9a4b2; font-size: 9px; line-height: 1.5; }
+.privacy-dot { width: 6px; height: 6px; flex: 0 0 6px; margin-top: 3px; border-radius: 50%; background: #66d9a5; box-shadow: 0 0 8px rgba(102, 217, 165, .45); }
+.guidance { padding: 0 2px; }
+.guidance h2 { margin: 0 0 7px; color: #d8d4df; font-size: 10px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+.guidance > p { margin: 0; color: #aaa5b3; font-size: 10px; line-height: 1.55; }
+.fine-print { display: grid; gap: 4px; margin: 8px 0 0; padding: 0; list-style: none; }
+.fine-print li { position: relative; padding-left: 12px; color: #8f8a99; font-size: 9px; line-height: 1.35; }
+.fine-print li::before { position: absolute; top: 4px; left: 1px; width: 4px; height: 4px; border-radius: 50%; background: #9270ec; content: ""; }
+.footer { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-top: 10px; padding-top: 8px; border-top: 1px solid #2b2932; }
+.discord-link { color: #c4b5fd; font-size: 10px; font-weight: 650; text-decoration: none; }
+.discord-link:hover { color: #e2d9ff; text-decoration: underline; text-underline-offset: 3px; }
+.discord-link:focus-visible { border-radius: 3px; outline: 2px solid var(--accent); outline-offset: 3px; }
+.save-status { min-height: 14px; color: #8f8a99; font-size: 9px; text-align: right; }
+.save-status[data-state="saved"] { color: #75d9a8; }
+.save-status[data-state="error"] { color: #ff9b9b; }
+
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition-duration: .01ms !important; } }

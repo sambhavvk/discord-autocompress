@@ -1,0 +1,24 @@
+Bundled FFmpeg components
+=========================
+
+@ffmpeg/ffmpeg 0.12.15: MIT, Copyright (c) 2019 Jerome Wu.
+The JavaScript wrapper is bundled from the npm package. A local adapter uses
+its worker protocol with a static core import and only the required operations.
+License: ffmpeg-wasm-MIT.txt
+Source: https://github.com/ffmpegwasm/ffmpeg.wasm
+
+@ffmpeg/core 0.12.10: GPL-2.0-or-later (per the upstream package metadata).
+The single-thread ffmpeg-core.js and ffmpeg-core.wasm are copied without
+modification from the npm package. The build includes FFmpeg and codec libraries.
+Licenses: ffmpeg-core-GPL-2.0.txt and ffmpeg-LGPL-2.1.txt
+Build sources and scripts: https://github.com/ffmpegwasm/ffmpeg.wasm
+Core package: https://www.npmjs.com/package/@ffmpeg/core/v/0.12.10
+FFmpeg source: https://github.com/FFmpeg/FFmpeg
+FFmpeg licensing: https://ffmpeg.org/legal.html
+
+This software is based in part on the work of the Independent JPEG Group.
+No changes are made here to FFmpeg's JPEG implementation or other core code.
+
+These components are local package assets. No FFmpeg scripts or binaries are
+downloaded by the installed extension. The exact npm versions and integrity
+hashes used by this project are recorded in package-lock.json.

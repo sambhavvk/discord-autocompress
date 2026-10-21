@@ -1,0 +1,9 @@
+# Privacy
+
+Discord AutoCompress processes supported picture, GIF, and optionally video attachments locally in your browser. It does not upload files to a compression service, collect analytics, or send telemetry. The extension does not read Discord tokens or call private Discord APIs.
+
+The extension stores only its settings—whether compression is enabled, whether video compression and short-video GIF conversion are enabled, and the chosen target size—in the browser's extension storage. Video compression and GIF conversion are opt-in and disabled by default. It does not save attachment contents or temporary WASM processing data; video frames and audio exist in memory while conversion runs. GIF output is silent. Compression happens before the file is attached; sending a message or attachment uses Discord's normal web app and network connection.
+
+The Firefox manifest requests the `storage` permission. Chrome also requests `offscreen` so its service worker can use a packaged offscreen extension page to run local compression workers. Both manifests declare a content script only for `https://discord.com/*`, `https://canary.discord.com/*`, and `https://ptb.discord.com/*`. The extension has no access to the Discord desktop app or other sites. It does not request permission to read account tokens or private API data.
+
+The extension's processing is local, but the user remains responsible for reviewing an attachment before sending it through Discord. Image compression can change quality or dimensions. Video conversion writes an H.264/AAC MP4 attachment or, for MP4/MKV/WebM clips under 30 seconds when enabled, a silent animated GIF with reduced resolution, frame rate, and color count as needed to fit the chosen target. Processing may take minutes on the user's CPU; the original source file on disk is left unchanged. Video size and duration limits apply only while both automatic compression and the optional video setting are enabled.

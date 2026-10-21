@@ -1,0 +1,33 @@
+{
+  "manifest_version": 3,
+  "name": "Discord AutoCompress",
+  "version": "0.4.0",
+  "description": "Compress pictures, animated GIFs, and optional videos locally before attaching them in Discord.",
+  "minimum_chrome_version": "116",
+  "permissions": ["storage", "offscreen"],
+  "background": { "service_worker": "chrome-background.js", "type": "module" },
+  "action": {
+    "default_title": "Discord AutoCompress",
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/icon-16.png",
+      "32": "icons/icon-32.png",
+      "48": "icons/icon-48.png",
+      "128": "icons/icon-128.png"
+    }
+  },
+  "icons": {
+    "16": "icons/icon-16.png",
+    "32": "icons/icon-32.png",
+    "48": "icons/icon-48.png",
+    "128": "icons/icon-128.png"
+  },
+  "content_scripts": [{
+    "matches": ["https://discord.com/*", "https://canary.discord.com/*", "https://ptb.discord.com/*"],
+    "js": ["content.js"],
+    "run_at": "document_start"
+  }],
+  "content_security_policy": {
+    "extension_pages": "script-src 'self' 'wasm-unsafe-eval'; object-src 'none'; worker-src 'self'; connect-src 'self'"
+  }
+}

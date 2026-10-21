@@ -1,0 +1,30 @@
+{
+  "manifest_version": 3,
+  "name": "Discord AutoCompress",
+  "version": "0.4.0",
+  "description": "Compress pictures, animated GIFs, and optional videos locally before attaching them in Discord. Built for Zen and Firefox.",
+  "permissions": ["storage"],
+  "background": { "scripts": ["background.js"], "type": "module" },
+  "browser_specific_settings": {
+    "gecko_android": { "strict_min_version": "142.0" },
+    "gecko": {
+      "id": "discord-autocompress@local",
+      "strict_min_version": "140.0",
+      "data_collection_permissions": { "required": ["none"] }
+    }
+  },
+  "action": {
+    "default_title": "Discord AutoCompress",
+    "default_popup": "popup.html",
+    "default_icon": "icons/icon.svg"
+  },
+  "icons": { "48": "icons/icon.svg", "96": "icons/icon.svg" },
+  "content_scripts": [{
+    "matches": ["https://discord.com/*", "https://canary.discord.com/*", "https://ptb.discord.com/*"],
+    "js": ["content.js"],
+    "run_at": "document_start"
+  }],
+  "content_security_policy": {
+    "extension_pages": "script-src 'self' 'wasm-unsafe-eval'; object-src 'none'; worker-src 'self'; connect-src 'self'"
+  }
+}

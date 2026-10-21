@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="dark" />
+    <title>Discord AutoCompress</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <main class="popup" aria-labelledby="app-title">
+      <header class="header">
+        <div class="brand-mark" aria-hidden="true">
+          <span class="mark-spark"></span>
+          <span class="mark-line mark-line-one"></span>
+          <span class="mark-line mark-line-two"></span>
+        </div>
+        <div class="brand-copy">
+          <p class="eyebrow">Media tools for Discord</p>
+          <h1 id="app-title">AutoCompress</h1>
+        </div>
+        <span class="scope-tag">Web only</span>
+      </header>
+
+      <section class="settings-card" aria-label="Compression settings">
+        <div class="setting-row toggle-row">
+          <div class="setting-copy">
+            <label class="setting-title" for="enabled">Automatic compression</label>
+            <p class="setting-description">Process pictures, GIFs and enabled videos</p>
+          </div>
+          <label class="switch" aria-label="Automatic compression">
+            <input id="enabled" name="enabled" type="checkbox" disabled />
+            <span class="switch-track" aria-hidden="true"><span class="switch-thumb"></span></span>
+          </label>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="setting-row video-row">
+          <div class="setting-copy">
+            <label class="setting-title" for="video-enabled">Compress videos</label>
+            <p class="setting-description">MP4 with sound · up to 2 min / 200 MB</p>
+          </div>
+          <label class="switch" aria-label="Compress videos">
+            <input id="video-enabled" name="videoEnabled" type="checkbox" disabled aria-describedby="video-help" />
+            <span class="switch-track" aria-hidden="true"><span class="switch-thumb"></span></span>
+          </label>
+        </div>
+        <p class="video-help" id="video-help">Video processing can take minutes. Limits apply even to small videos.</p>
+
+        <div class="setting-row gif-row">
+          <div class="setting-copy">
+            <label class="setting-title" for="video-gif-enabled">Short videos → GIF</label>
+            <p class="setting-description">MP4/MKV/WebM under 30 seconds · silent GIF</p>
+          </div>
+          <label class="switch" aria-label="Convert short MP4, MKV and WebM videos to GIF">
+            <input id="video-gif-enabled" name="videoGifEnabled" type="checkbox" disabled aria-describedby="gif-help" />
+            <span class="switch-track" aria-hidden="true"><span class="switch-thumb"></span></span>
+          </label>
+        </div>
+        <p class="gif-help" id="gif-help">Lower resolution, frame rate and colors keep the GIF within your target size.</p>
+
+        <div class="divider"></div>
+
+        <div class="setting-row target-row">
+          <div class="setting-copy">
+            <label class="setting-title" for="target-mb">Target file size</label>
+            <p class="setting-description">Aim for a smaller upload</p>
+          </div>
+          <div class="number-control">
+            <input id="target-mb" name="targetMB" type="number" min="1" max="20" step="1" inputmode="numeric" aria-describedby="target-help" disabled />
+            <span class="unit">MB</span>
+          </div>
+        </div>
+        <p class="target-help" id="target-help">Maximum target: 20 MB</p>
+      </section>
+
+      <p class="privacy-note"><span class="privacy-dot" aria-hidden="true"></span>Files are processed locally in your browser. Nothing is uploaded to a compression service.</p>
+
+      <section class="guidance" aria-labelledby="guide-title">
+        <h2 id="guide-title">How it works</h2>
+        <p>Refresh Discord after installing. Attach, drop, or paste pictures and GIFs; videos are processed when enabled. Review the attachment, then send.</p>
+        <ul class="fine-print">
+          <li>GIFs stay animated</li>
+          <li>Small pictures stay unchanged; video is opt-in</li>
+          <li>Compression can reduce quality or dimensions</li>
+        </ul>
+      </section>
+
+      <footer class="footer">
+        <a class="discord-link" href="https://discord.com/channels/@me" target="_blank" rel="noreferrer">
+          Open Discord <span aria-hidden="true">↗</span>
+        </a>
+        <span id="save-status" class="save-status" role="status" aria-live="polite">Loading settings…</span>
+      </footer>
+    </main>
+    <script type="module" src="popup.js"></script>
+  </body>
+</html>
